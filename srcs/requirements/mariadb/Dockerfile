@@ -16,6 +16,8 @@ RUN mkdir /var/run/mysqld; \
     sed -i "s|skip-networking|skip-networking=0|g" \
       /etc/my.cnf.d/mariadb-server.cnf
 
+RUN echo $DB_NAME
+
 RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
 EXPOSE 3306
